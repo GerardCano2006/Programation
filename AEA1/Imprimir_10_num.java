@@ -1,3 +1,5 @@
+package AEA1;
+
 public class Imprimir_10_num {
 	public static void main(String[] args){
 
