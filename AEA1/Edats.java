@@ -8,7 +8,7 @@ public class Edats {
 
         float avg = 0;                  //Mitjana
         float sum = 0;                  //Suma
-        int length = ages.length;       //Recorri  tots els valors
+        int length = ages.length;       //Recorri tots els valors
         int min = ages[0];              //Edat min
         int max = ages[0];              //Edat max
 
