@@ -2,7 +2,7 @@ package AEA2;
 
 import java.util.Scanner;
 
-public class Suma_multiples_de_tres {
+public class Cotxes {
     public static void main(String[] args){
         Scanner lector = new Scanner(System.in);
 
