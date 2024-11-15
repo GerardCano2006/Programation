@@ -1,3 +1,4 @@
+package AEA2;
 import java.util.Scanner;
 public class Cotxe {
     public static void main(String[] args) {
