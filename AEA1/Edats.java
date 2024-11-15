@@ -23,7 +23,6 @@ public class Edats {
         }
         avg = sum / length;
 
-        // Imprimir resultados
         System.out.println("La mitjana d'edats és: " + avg);
         System.out.println("L'edat mínima és: " + min);
         System.out.println("L'edat màxima és: " + max);
