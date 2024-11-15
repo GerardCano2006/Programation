@@ -6,11 +6,11 @@ public class Edats {
     public static void main(String[] args) {
         int ages[] = {20, 22, 18, 35, 48, 26, 87, 70};
 
-        float avg = 0;
-        float sum = 0;
-        int length = ages.length;
-        int min = ages[0];
-        int max = ages[0];
+        float avg = 0;                  //Mitjana
+        float sum = 0;                  //Suma
+        int length = ages.length;       //Recorri  tots els valors
+        int min = ages[0];              //Edat min
+        int max = ages[0];              //Edat max
 
         for (int i : ages) {
             sum = sum + i;
