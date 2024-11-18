@@ -10,10 +10,10 @@ public class Trobar_max_min {
         int min= numeros[0];
 
         for (int i = 0; i < length; i++) {
-            if (numeros[i] <= min){
+            if (numeros[i] <= min){             //Si el número mirat és més petit que min (primer valor), min serà igual a aquest nou num.
                 min = numeros[i];
             }
-            if (numeros[i] >= max){
+            if (numeros[i] >= max){             //Si el número mirat és més gran que max (primer valor), max serà igual a aquest nou num.
                 max = numeros[i];
             }
         }
