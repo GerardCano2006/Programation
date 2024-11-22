@@ -1,3 +1,5 @@
+package AEA1;
+
 public class prov {
 	public static void main(String[] args){
 	 	int cinc=5;

@@ -1,3 +1,5 @@
+package AEA1;
+
 import java.util.Scanner;
 
 public class Suma_multiples_de_tres {

@@ -1,3 +1,5 @@
+package AEA1;
+
 import java.util.Scanner;
 
 public class Taula_multiplicar {

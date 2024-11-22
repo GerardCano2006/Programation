@@ -1,3 +1,5 @@
+package AEA1;
+
 import java.util.Scanner;
 
 public class Descompte_control_errors {
@@ -8,12 +10,12 @@ public class Descompte_control_errors {
 	 	double preu=lector.nextDouble();
 	 	
 	 	if (preu >= 0) { 		//El preu és positiu.
-	 		if(preu >=100){ 	//El preu és positiu i igual o major a 100 (perque s'apliqui el descompte).
+	 		if(preu >=100){ 	//El preu és positiu i igual o major a 100 (perque s'apliqui el AEA1.descompte).
 	 			double descompteFet = preu * 8 / 100;
 	 			if (descompteFet > 10) {
 		 			descompteFet = 10;
 	 			}
-	 			preu = preu - descompteFet;		//El preu és positiu però no igual ni major a 100, per tant, no s'aplica el descompte.
+	 			preu = preu - descompteFet;		//El preu és positiu però no igual ni major a 100, per tant, no s'aplica el AEA1.descompte.
 	 		}
 			System.out.println("Preu Final: " + preu);
 	 	}

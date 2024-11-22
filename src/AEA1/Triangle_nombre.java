@@ -1,6 +1,8 @@
+package AEA1;
+
 import java.util.Scanner;
 
-public class Triangle_nombre_repetit {
+public class Triangle_nombre {
 	public static void main(String[] args){
 		Scanner lector = new Scanner(System.in);
 
@@ -9,9 +11,9 @@ public class Triangle_nombre_repetit {
 
 		for (int i=1; i <= nombre; i++) {
 			for (int j=1; j <= i; j++) {
-				System.out.print(i);
+				System.out.print(j);
 			}
-			System.out.println();
+			System.out.println();           //Salta de fila si j és igual a i
 		}
 	}
 }
