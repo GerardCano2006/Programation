@@ -5,7 +5,7 @@ public class mitjana {
     public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
 
-        double [] num = new double[5];
+        double[] num = new double[5];
         System.out.println("Introdueix el primer valor: ");
         num[0] = lector.nextDouble();
         System.out.println("Introdueix el segon valor: ");
