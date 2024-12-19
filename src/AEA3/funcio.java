@@ -1,5 +1,7 @@
  package AEA3;
 
+//si és void no té paràmetres de sortida
+
 public class funcio {
         public static void main(String[] args) {
             int a = 5;
