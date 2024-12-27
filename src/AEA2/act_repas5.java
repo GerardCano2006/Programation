@@ -9,9 +9,9 @@ public class act_repas5 {
         // Demanar el tamany de la matriu
         System.out.print("De quantes files vols la matriu?: ");
         int files = lector.nextInt();
+
         System.out.print("De quantes columnes vols la matriu? ");
         int columnes = lector.nextInt();
-
 
         int[][] matriu = new int[files][columnes];
 
@@ -25,13 +25,13 @@ public class act_repas5 {
                     if (num < 0 || num > 10) {
                         System.out.println("Num incorrecte, ha de ser entre 0 i 10");
                     }
-                } while (num < 0 || num > 10); //No entenc aquesta part Marina
+                } while (num < 0 || num > 10);
                 matriu[i][j] = num;
             }
         }
 
-        // Contar freqüència
-        int[] frequencia = new int[11]; // De 0 a 10
+        // Comptar freqüència
+        int frequencia[] = new int[11]; // De 0 a 10
         for (int i = 0; i < files; i++) {
             for (int j = 0; j < columnes; j++) {
                 frequencia[matriu[i][j]]++;
