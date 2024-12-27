@@ -94,7 +94,6 @@ public class act_repas3 {
 
 
 
-
         // Suma de matrius
         int[][] sum_matrius = new int[files1][columnes1];
         for (int i = 0; i < files1; i++) {
