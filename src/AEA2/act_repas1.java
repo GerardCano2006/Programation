@@ -7,57 +7,78 @@ public class act_repas1 {
         Random random = new Random();
 
         int matriu[][] = new int[5][5];  // Matriu de 5 files i 5 columnes
-
-        int mitjana = 0;
         int sum = 0;
         int max = 0;
-        int parells = 0;
-        int senars = 0;
-        int sum_diago1 = 0;
-        int maxCount = 0;
+        int comptador_max = 0;
+        int sum_diago = 0;
+        int sum_ultima_f = 0;
+
+        int parells[][] = new int[5][5];
+        int senars[][] = new int[5][5];
 
         for (int i = 0; i < matriu.length; i++) {
             for (int j = 0; j < matriu[i].length; j++) {
-                matriu[i][j] = random.nextInt(11);
-                if (matriu[i][j] > max) {       //Número més gran
-                    max = matriu[i][j];
-                    maxCount = 1; // Si hi ha un nou valor més gran, restarteja el comptador a 1 aparició.
-                } else if (matriu[i][j] == max) {
-                    maxCount++; // Incrementar el comptador si es torna a aparèixer el número màxim.
+                matriu[i][j] = random.nextInt(101);
+                if (matriu[i][j] %2==0){        //És parell
+                    parells[i][j] = matriu[i][j];
                 }
+                else {        //És senar
+                    senars[i][j] = matriu[i][j];
+                }
+
+
                 sum = sum + matriu[i][j];
-
-                if (matriu[i][j] % 2 == 0) { // Si el número es parell
-                    parells = matriu[i][j];
-                    System.out.println(parells + " És un número parell que apareix en la matriu!");
-                } else {                    // Si el número es senar
-                    senars = matriu[i][j];
-                    System.out.println(senars + " És un número senar que apareix en la matriu!");
+                if (matriu[i][j] > max) {       //Num max
+                    max = matriu[i][j];
+                    comptador_max = 0;
+                    comptador_max ++;
+                }
+                else if (matriu[i][j] == max) { //Si el num max es repeteix
+                    comptador_max ++;
                 }
 
-                // Sumar la primera diagonal
-                if (i == j) {
-                    sum_diago1 = sum_diago1 + matriu[i][j];
+                if (i == j) {       //Suma de la diagonal
+                    sum_diago = sum_diago + matriu[i][j];
                 }
             }
         }
+        sum_ultima_f = (matriu[4][0] + matriu[4][1] + matriu[4][2] + matriu[4][3] + matriu[4][4]);      //Sum última fila
 
-        // Calcular la mitjana de la matriu
-        mitjana = sum / 25;
+        int mitjana = sum/25;
 
-        // Mostrar la matriu
+
+
+
+        //Matriu generada
         System.out.println("Matriu generada:");
         for (int i = 0; i < matriu.length; i++) {
             for (int j = 0; j < matriu[i].length; j++) {
                 System.out.print(matriu[i][j] + " ");
             }
-            System.out.println("");
+            System.out.println();
+        }
+        System.out.println(" ");
+        System.out.println("La mitjana de la matriu és: " + mitjana);
+        System.out.println("El número més gran que apareix en la matriu és el " + max + " i apareix " + comptador_max + " vegades");
+        System.out.println("La suma de la diagonal de la matriu és: " + sum_diago);
+        System.out.println("La suma de la última fila de la matriu és: " + sum_ultima_f);
+
+        System.out.println("Els números parells de la matriu: " );      //Matriu números parells
+        for (int i = 0; i < parells.length; i++) {
+            for (int j = 0; j < parells[i].length; j++) {
+                System.out.print(parells[i][j] + " ");
+            }
+            System.out.println();
         }
 
-        // Mostrar els resultats
-        System.out.println("La mitjana de la matriu és: " + mitjana);
-        System.out.println("El número més gran de la taula és el: " + max);
-        System.out.println("El número més gran és: " + max + " i apareix " + maxCount + " vegades.");
-        System.out.println("La suma de la primera diagonal és: " + sum_diago1);
+        System.out.println(" ");
+        System.out.println("Els números senars de la matriu: " );       //Matriu números senars
+        for (int i = 0; i < senars.length; i++) {
+            for (int j = 0; j < senars[i].length; j++) {
+                System.out.print(senars[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println(" ");
     }
 }
