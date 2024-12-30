@@ -4,43 +4,52 @@ import java.util.*;
 
 public class act_repas5 {
     public static void main(String[] args) {
-        Scanner lector = new Scanner(System.in);
+        Scanner lector = new Scanner(System .in);
 
-        // Demanar el tamany de la matriu
-        System.out.print("De quantes files vols la matriu?: ");
+        int comptador = 0;
+
+        System.out.println("De quàntes files vols la matriu? ");
         int files = lector.nextInt();
-
-        System.out.print("De quantes columnes vols la matriu? ");
+        System.out.println("De quàntes columnes vols la matriu? ");
         int columnes = lector.nextInt();
 
-        int[][] matriu = new int[files][columnes];
+        int matriu[][] = new int[files][columnes];
 
-        System.out.println("Introdueix els valors de la matriu (0 - 10):");
+        for (int i = 0; i < matriu.length; i++) {
+            for (int j = 0; j < matriu.length; j++) {
+                System.out.println("Quin valor vols afegir a la posició " + i + " " + j);
+                int valor = lector.nextInt();
+
+                if (valor < 0 || valor > 10){
+                    System.out.println("ERROR, valors entre 0 i 10!!");
+                }
+                else {
+                    matriu[i][j] = valor;
+                }
+            }
+        }
+
+        //Imprimir matriu
+        System.out.println("Matriu generada: ");
         for (int i = 0; i < matriu.length; i++) {
             for (int j = 0; j < matriu[i].length; j++) {
-                int num = 0;
-                do {
-                    System.out.print("Posició: " + i + " " + j + " ");
-                    num = lector.nextInt();
-                    if (num < 0 || num > 10) {
-                        System.out.println("Num incorrecte, ha de ser entre 0 i 10");
-                    }
-                } while (num < 0 || num > 10);
-                matriu[i][j] = num;
+                System.out.print(matriu[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println(" ");
+
+        int numeros[] = new int[11];
+
+        // Contar aparicións de cada número
+        for (int i = 0; i < matriu.length; i++) {
+            for (int j = 0; j < matriu[i].length; j++) {
+                numeros[matriu[i][j]]++;        //És com: numeros[valor], i cada vegada que apareixi el mateix valor, suma 1 al vector numeros
             }
         }
-
-        // Comptar freqüència
-        int frequencia[] = new int[11]; // De 0 a 10
-        for (int i = 0; i < files; i++) {
-            for (int j = 0; j < columnes; j++) {
-                frequencia[matriu[i][j]]++;
-            }
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println("El número " + i + ": " + numeros[i] + " vegades");
         }
 
-        // Mostrar freqüències
-        for (int i = 0; i <= 10; i++) {
-            System.out.println("Número " + i + ": " + frequencia[i] + " vegades");
-        }
     }
 }
