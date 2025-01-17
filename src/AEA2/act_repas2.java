@@ -1,5 +1,6 @@
 package AEA2;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class act_repas2 {
@@ -8,10 +9,10 @@ public class act_repas2 {
         Scanner lector = new Scanner(System .in);
         Random random = new Random();
 
-        System.out.println("Quàntes columnes vols que tingui la matriu?");
+        System.out.println("Quàntes columnes vols a la matriu? ");
         int columnes = lector.nextInt();
 
-        int matriu[][] = new int[5][columnes];
+        int[][] matriu = new int[5][columnes];
 
         for (int i = 0; i < matriu.length; i++) {
             for (int j = 0; j < matriu[i].length; j++) {
@@ -20,7 +21,7 @@ public class act_repas2 {
         }
 
         //Imprimir matriu
-        System.out.println("Matriu generada:");
+        System.out.println("Matriu Generada: ");
         for (int i = 0; i < matriu.length; i++) {
             for (int j = 0; j < matriu[i].length; j++) {
                 System.out.print(matriu[i][j] + " ");

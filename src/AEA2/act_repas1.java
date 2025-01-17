@@ -1,84 +1,71 @@
 package AEA2;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class act_repas1 {
     public static void main(String[] args) {
-        Random random = new Random();
 
-        int matriu[][] = new int[5][5];  // Matriu de 5 files i 5 columnes
+        Scanner lector = new Scanner(System .in);
+
+        System.out.println("Nº files");
+        int files = lector.nextInt();
+        System.out.println("Nº columnes");
+        int columnes = lector.nextInt();
+
         int sum = 0;
-        int max = 0;
-        int comptador_max = 0;
-        int sum_diago = 0;
-        int sum_ultima_f = 0;
+        int mitjana = 0;
+        int sum_diago1 = 0;
+        int sum_diago2 = 0;
+        int sum_ulti_fila = 0;
 
-        int parells[][] = new int[5][5];
-        int senars[][] = new int[5][5];
+        int[][] matriu = new int[files][columnes];
 
         for (int i = 0; i < matriu.length; i++) {
             for (int j = 0; j < matriu[i].length; j++) {
-                matriu[i][j] = random.nextInt(101);
-                if (matriu[i][j] %2==0){        //És parell
-                    parells[i][j] = matriu[i][j];
+                System.out.println("Quin valor vols que hi hagi en la posició " + i + " " + j);
+                int valor = lector.nextInt();
+
+                if (valor < 0 ||valor > 10) {
+                    System.out.println("ERROR, el valor ha de ser entre 0 i 10!!");
+                    System.out.println("Quin valor vols que hi hagi en la posició " + i + " " + j);
+                    valor = lector.nextInt();
+                    matriu[i][j] = valor;
+                    sum = sum + valor;
                 }
-                else {        //És senar
-                    senars[i][j] = matriu[i][j];
+                else {
+                    matriu[i][j] = valor;
+                    sum = sum + valor;
                 }
 
-
-                sum = sum + matriu[i][j];
-                if (matriu[i][j] > max) {       //Num max
-                    max = matriu[i][j];
-                    comptador_max = 0;
-                    comptador_max ++;
-                }
-                else if (matriu[i][j] == max) { //Si el num max es repeteix
-                    comptador_max ++;
-                }
-
-                if (i == j) {       //Suma de la diagonal
-                    sum_diago = sum_diago + matriu[i][j];
+                //Diago 1
+                if (i == j) {
+                    sum_diago1 = sum_diago1 + matriu[i][j];
                 }
             }
         }
-        sum_ultima_f = (matriu[4][0] + matriu[4][1] + matriu[4][2] + matriu[4][3] + matriu[4][4]);      //Sum última fila
 
-        int mitjana = sum/25;
+        //Diago 2
+        for (int i = 0; i < matriu.length; i++) {
+            sum_diago2 = sum_diago2 +  matriu[i][matriu.length - 1 - i];
+        }
 
+        mitjana = sum / (files + columnes);
 
+        for (int j = 0; j < matriu[files - 1].length; j++) {
+            sum_ulti_fila = sum_ulti_fila + matriu[files - 1][j];
+        }
 
-
-        //Matriu generada
-        System.out.println("Matriu generada:");
+        System.out.println("Matriu Generada:");
         for (int i = 0; i < matriu.length; i++) {
             for (int j = 0; j < matriu[i].length; j++) {
                 System.out.print(matriu[i][j] + " ");
             }
             System.out.println();
         }
-        System.out.println(" ");
-        System.out.println("La mitjana de la matriu és: " + mitjana);
-        System.out.println("El número més gran que apareix en la matriu és el " + max + " i apareix " + comptador_max + " vegades");
-        System.out.println("La suma de la diagonal de la matriu és: " + sum_diago);
-        System.out.println("La suma de la última fila de la matriu és: " + sum_ultima_f);
-
-        System.out.println("Els números parells de la matriu: " );      //Matriu números parells
-        for (int i = 0; i < parells.length; i++) {
-            for (int j = 0; j < parells[i].length; j++) {
-                System.out.print(parells[i][j] + " ");
-            }
-            System.out.println();
-        }
-
-        System.out.println(" ");
-        System.out.println("Els números senars de la matriu: " );       //Matriu números senars
-        for (int i = 0; i < senars.length; i++) {
-            for (int j = 0; j < senars[i].length; j++) {
-                System.out.print(senars[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println(" ");
+        System.out.println(sum);
+        System.out.println(mitjana);
+        System.out.println(sum_ulti_fila);
+        System.out.println(sum_diago1);
     }
 }
