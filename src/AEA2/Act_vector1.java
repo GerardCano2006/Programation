@@ -33,6 +33,12 @@ public class Act_vector1 {
         System.out.println("De quina longitud vols el 2n vector? ");
         int longitud2 = lector.nextInt();
 
+        if (longitud != longitud2) {
+            System.out.println("La longitud dels dos vectors ha de ser la mateixa!!");
+            System.out.println("De quina longitud vols el 2n vector? " + "(" + longitud + ")");
+            longitud2 = lector.nextInt();
+        }
+
         int[] vector2 = new int[longitud2];
 
         for (int i = 0; i < vector2.length; i++) {
