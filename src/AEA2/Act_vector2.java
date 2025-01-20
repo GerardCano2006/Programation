@@ -37,21 +37,19 @@ public class Act_vector2 {
         System.out.println("Quin valor vols buscar en el vector?");
         int valor_buscat = lector.nextInt();
 
-        int comptador_valor = 0;
+        boolean trobat = false;
 
-        for (int i = 0; i < vector.length; i++) {
+        int i = 0;
+        while (i < vector.length) {
             if (valor_buscat == vector[i]) {
-                comptador_valor ++;
+                System.out.println("El valor " + valor_buscat + " apareix a la posició " + i + " del vector");
+                trobat = true;
             }
-
-        }
-        if (comptador_valor > 0) {
-            System.out.println("El valor " + valor_buscat + " apareix " + comptador_valor + " vegades en el vector!");
-        }
-        else {
-            System.out.println("El " + valor_buscat + " no apareix en la matriu!");
+            i++;
         }
 
-
+        if (!trobat) {
+            System.out.println("El valor " + valor_buscat + " NO apareix en la matriu");
+        }
     }
 }
