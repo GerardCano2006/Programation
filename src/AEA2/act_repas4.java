@@ -3,30 +3,31 @@ package AEA2;
 import java.util.*;
 
 public class act_repas4 {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        act_repas4 programa = new act_repas4();
+        programa.Ordenar();
+    }
+    int[] vector = {2, 43, 54, 56, 10};
 
-        int vector[] = {3, 31, 34, 54, 56, 63, 23, 6, 2, 53, 64, 4, 100, 99, 10};
+    public void Ordenar() {
+        int max = vector[0];
+        int segon_max = vector[1];
 
-        int min = vector[0];
-        int segon_min = vector[1];
-
-        if (segon_min < min) {
-            min = vector[1];
-            segon_min = vector[0];
+        if (segon_max > max) {
+            max = vector[1];
+            segon_max = vector[0];
         }
 
         for (int i = 0; i < vector.length; i++) {
-            if (vector[i] < min) {
-                segon_min = min;
-                min = vector[i];
+            if (vector[i] > max) { //Si el valor és més gran que max
+                segon_max = max;
+                max = vector[i];
             }
-            else if (vector[i] > min && vector[i] < segon_min ) {
-                segon_min = vector[i];
+            else if (vector[i] > segon_max) {       //Si el valor és més gran que segon_min
+                segon_max = vector[i];
             }
         }
-
-        System.out.println("El valor més petit de la matriu és: " + min);
-        System.out.println("El segon valor més petit de la matriu és: " + segon_min);
-
+        System.out.println("El número más grande es: " + max);
+        System.out.println("El segundo número más grande es: " + segon_max);
     }
 }
