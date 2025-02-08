@@ -1,5 +1,5 @@
 package AEA3.Empresa;
-/*
+
 public class Peticio {
 
     private int quantitat;
@@ -13,4 +13,3 @@ public class Peticio {
 
     }
 }
- */

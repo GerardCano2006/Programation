@@ -1,5 +1,5 @@
 package AEA3.Empresa;
-/*
+
 public class Client {
     private String nom;
     private String adreca;
@@ -15,4 +15,3 @@ public class Client {
 
     }
 }
-*/
