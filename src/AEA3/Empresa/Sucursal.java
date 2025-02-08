@@ -1,5 +1,5 @@
 package AEA3.Empresa;
-
+/*
 public class Sucursal {
     private String nom;
     private String adreca;
@@ -38,3 +38,4 @@ public class Sucursal {
 
     }
 }
+ */
