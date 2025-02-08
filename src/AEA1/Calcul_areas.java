@@ -1,93 +1,90 @@
 package AEA1;
 
 import java.util.Scanner;
+import java.util.spi.AbstractResourceBundleProvider;
+
 
 public class Calcul_areas {
-  public static void main(String[] args){
+  public static void main(String[] args) {
     Scanner lector = new Scanner(System.in);
 
     System.out.println("De quina figura vols calcular l'àrea?");
-    String triangle="triangle";
-    String quadrat="quadrat";
-    String trapezi="trapezi";
-    String rombe="rombe";
-    String paralelogram="paralelogram";
-    String cercle="cercle";
-    System.out.println("Tens les seguents opcións:" + triangle + "  " + cercle + "  " + trapezi + "  " + rombe + "  " + paralelogram);
-    String figura=lector.nextLine();
-    double area=0;
-    boolean figurabona = false;
+    System.out.println("Tens les següents opcions: triangle, cercle, trapezi, rombe, paralelogram");
+    String figura = lector.nextLine();
 
-//---------------------------------------------------------Triangle
+    double area = 0;
 
     if (figura.equals("triangle")) {
-      System.out.println("Quina és la base del triangle:");
-      double base=lector.nextFloat();
-
-      System.out.println("Quina és la altura del triangle:");
-      double altura=lector.nextFloat();
-
-      area = area + base * altura / 2;
-      figurabona = true;
-
-
-//---------------------------------------------------------Cercle
-
-    } else if (figura.equals("cercle")) {
-      System.out.println("Quin és el radi del cercle:");
-      double radi=lector.nextFloat();
-
-      area = area + 3.14 * (radi * radi);
-      figurabona = true;
-
-//---------------------------------------------------------Trapezi
-
-    } else if (figura.equals("trapezi")) {
-      System.out.println("De quant és la base major:");
-      double bmajor=lector.nextFloat();
-
-      System.out.println("De quant és la base menor:");
-      double bmenor=lector.nextFloat();
-
-      System.out.println("Quina és la altura del trapezi:");
-      double altura=lector.nextFloat();
-
-      area = area + (bmajor * bmenor) * altura /2;
-      figurabona = true;
-
-    
-    //---------------------------------------------------------Rombe
-
-    } else if (figura.equals("rombe")) {
-      System.out.println("De quant és la diagonal major:");
-      double dmajor=lector.nextFloat();
-
-      System.out.println("De quant és la diagonal menor:");
-      double dmenor=lector.nextFloat();
-
-      area = area + (dmajor * dmenor);
-      figurabona = true;
-    
-//---------------------------------------------------------Paral·elogram
-
-    } else if (figura.equals("paralelogram")) {
-      System.out.println("De quant és la base:");
-      double base=lector.nextFloat();
-
-      System.out.println("De quant és l'altura:");
-      double altura=lector.nextFloat();
-
-      area = area + (base * altura);
-      figurabona = true;
-
-//---------------------------------------------------------Si escriuen una altra cosa que no siguin les figures
-
-    } else {    //figurabona és false
-      System.out.println("Has d'escriure una de les figures!");
+      area = calcularTriangle(lector);
+    }
+    else if (figura.equals("cercle")) {
+      area = calcularCercle(lector);
+    }
+    else if (figura.equals("trapezi")) {
+      area = calcularTrapezi(lector);
+        }
+    else if (figura.equals("rombe")) {
+      area = calcularRombe(lector);
+    }
+    else if (figura.equals("paralelogram")) {
+      area = calcularParalelogram(lector);
     }
 
-    if (figurabona) {    //figurabona és true
-      System.out.println("L'àrea de la " + figura + " és " + area);
-    }
+    System.out.println("L'àrea de la " + figura + " és " + area);
+  }
+
+  // Funció per calcular l'àrea d'un triangle
+  public static double calcularTriangle(Scanner lector) {
+    System.out.println("Quina és la base del triangle:");
+    double base = lector.nextDouble();
+
+    System.out.println("Quina és l'altura del triangle:");
+    double altura = lector.nextDouble();
+
+    return (base * altura) / 2;
+  }
+
+  // Funció per calcular l'àrea d'un cercle
+  public static double calcularCercle(Scanner lector){
+    System.out.println("Quin és el radi del cercle? ");
+    double radi = lector.nextDouble();
+
+    return 3.14 * (radi * radi);
+  }
+
+  // Funció per calcular l'àrea d'un trapezi
+  public static double calcularTrapezi(Scanner lector) {
+    System.out.println("De quant és la base major:");
+    double baseMajor = lector.nextDouble();
+
+    System.out.println("De quant és la base menor:");
+    double baseMenor = lector.nextDouble();
+
+    System.out.println("Quina és l'altura del trapezi:");
+    double altura = lector.nextDouble();
+
+    return (baseMajor + baseMenor) * altura / 2;
+  }
+
+  // Funció per calcular l'àrea d'un rombe
+  public static double calcularRombe(Scanner lector) {
+    System.out.println("De quant és la diagonal major:");
+    double diagonalMajor = lector.nextDouble();
+
+    System.out.println("De quant és la diagonal menor:");
+    double diagonalMenor = lector.nextDouble();
+
+    return (diagonalMajor * diagonalMenor) / 2;
+  }
+
+  // Funció per calcular l'àrea d'un paral·elogram
+  public static double calcularParalelogram(Scanner lector) {
+    System.out.println("De quant és la base:");
+    double base = lector.nextDouble();
+
+    System.out.println("De quant és l'altura:");
+    double altura = lector.nextDouble();
+
+    return base * altura;
   }
 }
