@@ -1,5 +1,5 @@
 package AEA3.Empresa;
-/*
+
 public class Transportista {
     private String nom;
     private String telefon;
@@ -21,4 +21,3 @@ public class Transportista {
 
     }
 }
- */

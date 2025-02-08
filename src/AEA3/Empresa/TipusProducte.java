@@ -1,5 +1,5 @@
 package AEA3.Empresa;
-/*
+
 public class TipusProducte {
 
     private String nom;
@@ -15,4 +15,3 @@ public class TipusProducte {
         TIAlaVenda = AlaVenda;
     }
 }
- */
