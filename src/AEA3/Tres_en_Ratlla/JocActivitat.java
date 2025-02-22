@@ -9,7 +9,7 @@ public class JocActivitat {
     private boolean guanyador;
     private Scanner scanner;
 
-    public JocActivitat() {
+    public JocActivitat() {     //Funció creadora
         jugadorActual = 'X';
         guanyador = false;
         scanner = new Scanner(System .in);
