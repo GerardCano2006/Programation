@@ -1,11 +1,10 @@
 package AEA3.Empresa;
-
+/*
 public class Sucursal {
     private String nom;
     private String adreca;
     private String telefon;
     private String email;
-
 
     public Sucursal (String Snom, String Sadreca, String Stelefon, String Semail) {
         nom = Snom;
@@ -38,3 +37,5 @@ public class Sucursal {
 
     }
 }
+
+ */

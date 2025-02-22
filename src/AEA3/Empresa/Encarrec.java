@@ -1,5 +1,5 @@
 package AEA3.Empresa;
-
+/*
 public class Encarrec {
 
     private int dia;
@@ -24,3 +24,5 @@ public class Encarrec {
 
     }
 }
+
+ */

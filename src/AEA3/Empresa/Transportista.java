@@ -1,11 +1,9 @@
 package AEA3.Empresa;
-
+/*
 public class Transportista {
     private String nom;
     private String telefon;
     private int numLlicencia;
-
-
 
     public Transportista(String Tnom, String Ttelefon, int TnumLlicencia) {
         Tnom = nom;
@@ -21,3 +19,5 @@ public class Transportista {
 
     }
 }
+
+ */
