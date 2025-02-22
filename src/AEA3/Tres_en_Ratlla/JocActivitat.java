@@ -38,7 +38,7 @@ public class JocActivitat {
 
             Tauler.Marcar_casella(fila, columna, jugadorActual);
             guanyador = Tauler.Comprovar_guanyador(jugadorActual);
-            if (!guanyador){
+            if (!guanyador){    //M'entres que no hi hagi un guanyador, que canvii el torn
                 Canvia_torn();
             }
         }
