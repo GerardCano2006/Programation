@@ -9,47 +9,37 @@ public class Act_vector2 {
 
         System.out.println("De quina longitud vols el vector? ");
         int longitud = lector.nextInt();
+        int valor = 0;
 
         int[] vector = new int[longitud];
 
+        System.out.println("Insereix els valors del vector:");
         for (int i = 0; i < vector.length; i++) {
-            System.out.println("Quin valor vols afegir en la posició " + i);
-            int valor = lector.nextInt();
-            if (valor < 0 || valor > 10) {
-                System.out.println("ERROR, ha de ser un número entre 0 i 10!");
-                System.out.println("Quin valor vols afegir en la posició " + i);
+            System.out.println("Element " + i + ": ");
+            valor = lector.nextInt();
+            vector[i] = valor;
+            if (valor < 0) {
+                System.out.println("Si us plau, inrtrodueix un valor positiu!");
+                System.out.println("Element " + i + ": ");
                 valor = lector.nextInt();
                 vector[i] = valor;
             }
-            else {
-                vector[i] = valor;
-            }
         }
-        System.out.println();
-
-        System.out.println("Vector Generat: ");
-        for (int i = 0; i < vector.length; i++) {
-            vector[i] = vector[i];
-            System.out.print(vector[i] + " ");
-        }
-        System.out.println();
-
-        System.out.println("Quin valor vols buscar en el vector?");
+        System.out.println("Insereix el valor a buscar: ");
         int valor_buscat = lector.nextInt();
 
         boolean trobat = false;
-
-        int i = 0;
-        while (i < vector.length) {
-            if (valor_buscat == vector[i]) {
-                System.out.println("El valor " + valor_buscat + " apareix a la posició " + i + " del vector");
-                trobat = true;
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i] == valor_buscat) {
+                System.out.println("El valor " + valor_buscat + " es troba a la posició " + i);
+                trobat = true; //L'ha trobat
             }
-            i++;
         }
 
-        if (!trobat) {
-            System.out.println("El valor " + valor_buscat + " NO apareix en la matriu");
+        if (!trobat) {  //Si no el troba:
+            System.out.println("El valor " + valor_buscat + " no es troba en el vector.");
         }
+
+        lector.close();
     }
 }

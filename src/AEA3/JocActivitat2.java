@@ -11,6 +11,7 @@ public class JocActivitat2 {
     private char jugadorActual;
     private boolean guanyador;
     private Scanner scanner;
+    private char jugador = 'X';
 
     public JocActivitat2() {
         guanyador = false;
