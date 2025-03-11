@@ -7,13 +7,12 @@ public class Persona {
     private String cognom;
     private String adreca;
 
-    //public Persona(){}
-
     public Persona(int id, String nom, String cognom) {
         this.id = id;
         this.nom = nom;
         this.cognom = cognom;
     }
+
     public Persona(int id, int edat, String nom, String cognom, String adreca) {
         this.id = id;
         this.edat = edat;
