@@ -5,7 +5,7 @@ public class Habitacio extends Allotjament {
 
 
     public Habitacio(String nom, int capacitat, boolean disponible, int num_llits) {
-        super("Habitació de l'Antonio", 2, true);
+        super(nom, capacitat, disponible);
         this.num_llits = num_llits;
     }
 
@@ -29,6 +29,6 @@ public class Habitacio extends Allotjament {
     @Override
     public String Mostrar_Informacio() {
         super.Mostrar_Informacio();
-        return //Què retorno
+        return "Nom: " + getNom() + ", Llits: " + getNum_llits() + ", Preu per nit: " + Calcular_Preu_Nit() + "€";
     }
 }

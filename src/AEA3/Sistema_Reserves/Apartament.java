@@ -6,7 +6,7 @@ public class Apartament extends Allotjament{
 
 
     public Apartament(String nom, int capacitat, boolean disponible, int habitacions, boolean te_cuina) {
-        super("Apartament de l'Ignasi", 4, true);
+        super(nom, capacitat, disponible);
         this.habitacions = habitacions;
         this.te_cuina = te_cuina;
     }
@@ -36,6 +36,6 @@ public class Apartament extends Allotjament{
     @Override
     public String Mostrar_Informacio() {
         super.Mostrar_Informacio();
-        return //Què retorno
+        return "Nom: " + getNom() + ", Habitacions: " + getHabitacions() + ", Cuina: " + (te_cuina ? "Sí" : "No") + ", Preu per nit: " + Calcular_Preu_Nit() + "€";
     }
 }

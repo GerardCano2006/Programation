@@ -4,8 +4,9 @@ public class Casa_Rural extends Allotjament{
     private boolean te_Jardi;
     private boolean te_Piscina;
 
+
     public Casa_Rural(String nom, int capacitat, boolean disponible, boolean te_Jardi, boolean te_Piscina) {
-        super("Casa Rural el Tigre", 10, true);
+        super(nom, capacitat, disponible);
         this.te_Jardi = te_Jardi;
         this.te_Piscina = te_Piscina;
     }
@@ -38,6 +39,6 @@ public class Casa_Rural extends Allotjament{
     @Override
     public String Mostrar_Informacio() {
         super.Mostrar_Informacio();
-        return //Què retorno
+        return "Nom: " + getNom() + ", Jardí: " + (te_Jardi ? "Sí" : "No") + ", Piscina: " + (te_Piscina ? "Sí" : "No") + ", Preu per nit: " + Calcular_Preu_Nit() + "€";
     }
 }

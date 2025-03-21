@@ -40,8 +40,6 @@ public class Allotjament {
     }
 
     public String Mostrar_Informacio() {
-
+        return "Nom: " + nom + ", Capacitat: " + capacitat + ", Disponible: " + (disponible ? "Sí" : "No");
     }
-
-
 }
