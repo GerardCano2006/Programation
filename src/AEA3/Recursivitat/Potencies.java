@@ -3,7 +3,8 @@ package AEA3.Recursivitat;
 public class Potencies {
 
     public static void main(String[] args) {
-        int base = 2, exponent = 2;
+        int base = 4;
+        int exponent = 4;
         System.out.println(base + "^" + exponent + " = " + potencies(base, exponent));
     }
 
