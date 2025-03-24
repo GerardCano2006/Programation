@@ -11,7 +11,7 @@ public class Potencies {
     public static int potencies(int base, int exponent) {
         System.out.println("En aquesta iteracció base = " + base + " i exponent = " + exponent);
 
-        if (exponent == 0) {
+        if (exponent == 0) {        //Cas Base (exponent = 0)
             System.out.println("Estém en el cas base, on l'exponent = " + exponent + " i base = " + base);
             return 1;
         }
