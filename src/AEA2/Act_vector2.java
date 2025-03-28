@@ -32,7 +32,7 @@ public class Act_vector2 {
         int valor_buscat = lector.nextInt();
 
         boolean trobat = false;
-        for (int i = 0; i < vector.length; i++) {
+        for (int i = 0; i < vector.length && !trobat; i++) {
             if (vector[i] == valor_buscat) {
                 System.out.println("El valor " + valor_buscat + " es troba a la posició " + i);
                 trobat = true; //L'ha trobat

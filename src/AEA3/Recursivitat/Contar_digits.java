@@ -3,7 +3,7 @@ package AEA3.Recursivitat;
 public class Contar_digits {
 
     public static void main(String[] args) {
-        int numero = 12345;
+        int numero = 100;
         System.out.println("El número de dígits de " + numero + " és: " + comptarDigits(numero));
     }
 
