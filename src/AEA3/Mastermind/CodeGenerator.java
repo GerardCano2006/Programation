@@ -6,12 +6,12 @@ public class CodeGenerator {
     private static String ABC = "abcdefghijklmnopqrstuvwxyz";
     private static int CODE_LENGTH = 3;
 
-    public String generateCode() {
+    public String generateCode() {      //Genera el còdi
         Random random = new Random();
-        StringBuilder code = new StringBuilder();
+        StringBuilder codi = new StringBuilder();
         for (int i = 0; i < CODE_LENGTH; i++) {
-            code.append(ABC.charAt(random.nextInt(ABC.length())));
+            codi.append(ABC.charAt(random.nextInt(ABC.length())));      //Genera un còdi aleatori de 3 dígits entre tots els elements d'"ABC"
         }
-        return code.toString();
+        return codi.toString();
     }
 }
