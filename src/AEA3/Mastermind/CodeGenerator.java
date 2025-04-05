@@ -1,17 +1,24 @@
 package AEA3.Mastermind;
 
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class CodeGenerator {
-    private static String ABC = "abcdefghijklmnopqrstuvwxyz";
-    private static int CODE_LENGTH = 3;
+    private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    private Random random = new Random();
 
-    public String generateCode() {      //Genera el còdi
-        Random random = new Random();
-        StringBuilder codi = new StringBuilder();
-        for (int i = 0; i < CODE_LENGTH; i++) {
-            codi.append(ABC.charAt(random.nextInt(ABC.length())));      //Genera un còdi aleatori de 3 dígits entre tots els elements d'"ABC"
+    public String generateCode(int length) {
+        ArrayList<Character> availableLetters = new ArrayList<>();
+        for (char c : ALPHABET.toCharArray()) {
+            availableLetters.add(c);
         }
-        return codi.toString();
+        Collections.shuffle(availableLetters, random);  // Mezclamos las letras
+
+        StringBuilder code = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            code.append(availableLetters.get(i));  // Tomamos las primeras 'length' letras
+        }
+        return code.toString();
     }
 }

@@ -12,13 +12,13 @@ public class Feedback {
             char secretChar = secret.charAt(i);
             char guessChar = guess.charAt(i);
 
-            if (secretChar == guessChar) {      //Si està tot bé
+            if (guessChar == secretChar) {      //Si la resposta és igual al codi secret
                 feedback.append(TOT_CORRECTE);
             }
-            else if (secret.indexOf(guessChar) != -1) {     //Si l'element està en el "guessChar" però no en aquella posicció
+            else if (secret.indexOf(guessChar) != -1) {     //Si l'element està en el "secretChar" però no en aquella posició
                 feedback.append(MALA_POSICIO);
             }
-            else {      //Bàsicament, si l'element NO està en el "guessChar"
+            else {      //Bàsicament, si l'element NO està en el "secretChar"
                 feedback.append(INCORRECTE);
             }
         }
