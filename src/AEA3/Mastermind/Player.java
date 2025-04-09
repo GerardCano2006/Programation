@@ -1,7 +1,7 @@
 package AEA3.Mastermind;
 
 public class Player {
-    protected int codeLength;
+    int codeLength;
 
     public Player(int codeLength) {
         this.codeLength = codeLength;
@@ -11,7 +11,7 @@ public class Player {
         return "";
     }
 
-    public int getCodeLength() {
+    public int getCodeLength() {        //getter
         return codeLength;
     }
 }

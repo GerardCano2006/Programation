@@ -13,11 +13,11 @@ public class CodeGenerator {
         for (char c : ALPHABET.toCharArray()) {
             availableLetters.add(c);
         }
-        Collections.shuffle(availableLetters, random);  // Mezclamos las letras
+        Collections.shuffle(availableLetters, random);  //Barreja les lletres
 
         StringBuilder code = new StringBuilder();
         for (int i = 0; i < length; i++) {
-            code.append(availableLetters.get(i));  // Tomamos las primeras 'length' letras
+            code.append(availableLetters.get(i));  //Seleccionem les "Lenght" primeres lletres
         }
         return code.toString();
     }

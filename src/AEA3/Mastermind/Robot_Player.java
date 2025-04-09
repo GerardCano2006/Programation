@@ -1,97 +1,96 @@
 package AEA3.Mastermind;
 
-import java.util.Random;
-import java.util.HashSet;
+import java.util.*;
 
 public class Robot_Player extends Player {
     private Random random = new Random();
-    private String lastGuess = "";
+    private String lastGuess = " ";
     private boolean hasWon = false;
-    private HashSet<Character> incorrectChars = new HashSet<>();
+
+    private Map<Character, Character> charStatus = new HashMap<>();
     private char[] currentGuess;
-    private char[] finalAnswer; // Letras confirmadas
-    private HashSet<Character> misplacedChars = new HashSet<>(); // Letras que deben recolocarse
+    private char[] finalAnswer;
 
     public Robot_Player(int codeLength) {
         super(codeLength);
         currentGuess = new char[codeLength];
         finalAnswer = new char[codeLength];
-        for (int i = 0; i < codeLength; i++) {
-            finalAnswer[i] = '_'; // Inicializamos la respuesta final con '_'
-        }
+        Arrays.fill(finalAnswer, '_');
     }
 
     @Override
     public String makeGuess() {
-        if (hasWon) return lastGuess; // Si ya ha ganado, no genera más intentos
+        if (hasWon) return lastGuess;
 
-        generateInitialGuess(); // Genera el primer intento si es necesario
+        HashSet<Character> usedChars = new HashSet<>(charStatus.keySet());
+
+        for (int i = 0; i < getCodeLength(); i++) {
+            if (finalAnswer[i] != '_') {
+                currentGuess[i] = finalAnswer[i]; //Lletra confirmada (el feedback No és igual a "-")
+                continue;
+            }
+
+            //Si tenim lletres mal colocades
+            Character xChar = getCharWithStatus('X', usedChars);
+            if (xChar != null) {
+                currentGuess[i] = xChar;
+                usedChars.add(xChar);
+                continue;
+            }
+
+            //Buscar lletra no utilitzada ni descartada
+            char newChar = getNewUnusedChar(usedChars);
+            currentGuess[i] = newChar;
+            usedChars.add(newChar);
+        }
+
         lastGuess = new String(currentGuess);
         return lastGuess;
     }
 
     public void updateGuess(String feedback) {
-        if (feedback.equals("000") || feedback.equals("00000")) {
-            hasWon = true; // Ha ganado si todo es '0'
+        if (feedback.equals("000") || feedback.equals("00000")) {       //Si el feedback és "000" o "00000" ha guanyat
+            hasWon = true;
             return;
         }
 
-        char[] newGuess = lastGuess.toCharArray();
-        HashSet<Integer> availablePositions = new HashSet<>();
-        HashSet<Character> usedChars = new HashSet<>();
-
         for (int i = 0; i < feedback.length(); i++) {
-            char currentChar = lastGuess.charAt(i);
+            char guessedChar = lastGuess.charAt(i);
+            char fb = feedback.charAt(i);
 
-            if (feedback.charAt(i) == '0') {
-                // '0' → La letra está bien en su sitio, la dejamos y la guardamos en la respuesta final
-                finalAnswer[i] = currentChar;
-                usedChars.add(currentChar);
-            } else if (feedback.charAt(i) == 'X') {
-                // 'X' → Guardamos la letra como "mal posicionada" y liberamos la posición
-                misplacedChars.add(currentChar);
-                availablePositions.add(i);
-            } else if (feedback.charAt(i) == '-') {
-                // '-' → La letra no está en la palabra, no la volvemos a probar
-                incorrectChars.add(currentChar);
-                newGuess[i] = getNewUnusedChar(usedChars);
-                usedChars.add(newGuess[i]);
+            switch (fb) {
+                case '0':
+                    charStatus.put(guessedChar, '0');
+                    finalAnswer[i] = guessedChar; //Lletra correecta
+                    break;
+                case 'X':
+                    if (charStatus.getOrDefault(guessedChar, '-') != '0') {
+                        charStatus.put(guessedChar, 'X'); //Lletra en posició incorrecta
+                    }
+                    break;
+                case '-':
+                    if (!charStatus.containsKey(guessedChar)) {
+                        charStatus.put(guessedChar, '-'); //Lletra NO correcta (NO utilitzar)
+                    }
+                    break;
             }
-        }
-
-        // Intentar recolocar letras mal posicionadas ('X')
-        for (char misplaced : misplacedChars) {
-            if (!availablePositions.isEmpty()) {
-                int newPos = availablePositions.iterator().next();
-                newGuess[newPos] = misplaced;
-                availablePositions.remove(newPos);
-            }
-        }
-
-        // Asegurar que las letras confirmadas ('0') se mantengan en su lugar
-        for (int i = 0; i < getCodeLength(); i++) {
-            if (finalAnswer[i] != '_') {
-                newGuess[i] = finalAnswer[i];
-            }
-        }
-
-        lastGuess = new String(newGuess);
-    }
-
-    private void generateInitialGuess() {
-        HashSet<Character> usedChars = new HashSet<>();
-        for (int i = 0; i < getCodeLength(); i++) {
-            char newChar = getNewUnusedChar(usedChars);
-            currentGuess[i] = newChar;
-            usedChars.add(newChar);
         }
     }
 
-    private char getNewUnusedChar(HashSet<Character> usedChars) {
+    private Character getCharWithStatus(char status, Set<Character> usedChars) {
+        for (Map.Entry<Character, Character> entry : charStatus.entrySet()) {
+            if (entry.getValue() == status && !usedChars.contains(entry.getKey())) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    private char getNewUnusedChar(Set<Character> usedChars) {
         char newChar;
         do {
             newChar = (char) ('a' + random.nextInt(26));
-        } while (usedChars.contains(newChar) || incorrectChars.contains(newChar));
+        } while (usedChars.contains(newChar) || charStatus.getOrDefault(newChar, 'X') == '-');
         return newChar;
     }
 }
