@@ -6,7 +6,7 @@ public class InicialitzaParells {
     int[] arrayParells = new int[100];
 
     try {
-      for(int i = 0; i <= arrayParells.length; i++) {
+      for(int i = 0; i < arrayParells.length; i++) {
         arrayParells[i] = 2*i;
         System.out.print(arrayParells[i] + " ");
       }

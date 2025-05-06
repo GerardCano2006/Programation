@@ -1,5 +1,6 @@
 package AEA3;
 
+import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.util.Scanner;
 
 public class RegistreTemperatures_PART6SOL {
@@ -179,23 +180,41 @@ public class RegistreTemperatures_PART6SOL {
 
   public void calculaMitjana() {
     float acumulador = 0;
-    for(int i = 0; i < numTemperatures; i++) {
-      acumulador = acumulador + temperatures[i];
+
+    try {
+      for(int i = 0; i < numTemperatures + 100000000; i++) {
+        acumulador = acumulador + temperatures[i];
+      }
+      float mitjana = acumulador / numTemperatures;
+      System.out.print(mitjana);
+
     }
-    System.out.print((acumulador / numTemperatures));
+
+    catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("Error calculant la mitjana");
+
+    }
   }
 
   public void calculaDiferencia() {
-    float maxima = temperatures[0];
-    float minima = temperatures[0];
-    for(int i = 1; i < numTemperatures; i++) {
-      if (temperatures[i] < minima) {
-        minima = temperatures[i];
+    try {
+      float maxima = temperatures[0];
+      float minima = temperatures[0];
+
+      for (int i = 0; i <= numTemperatures + 1000; i++) {
+        if (temperatures[i] < minima) {
+          minima = temperatures[i];
+        }
+        if (temperatures[i] > maxima) {
+          maxima = temperatures[i];
+        }
       }
-      if (temperatures[i] > maxima) {
-        maxima = temperatures[i];
-      }
+      System.out.print(maxima - minima);
+
     }
-    System.out.print((maxima - minima));
+    catch (ArrayIndexOutOfBoundsException e) {
+      System.out.println("Error en calcular la diferència");
+
+    }
   }
 }
